@@ -7,7 +7,7 @@ RUN apk add --allow-untrusted --repository http://dl-cdn.alpinelinux.org/alpine/
 COPY requirements.txt requirements.txt
 COPY Combined_pem.pem Combined_pem.pem
 RUN pip config set global.cert ./Combined_pem.pem
-RUN pip install --trusted-host pypi.python.org --index-url=http://pypi.python.org/simple/ -r requirements.txt
+RUN pip install --index-url=https://e411650:dUZytr0z4CPUGEV0mIhwmlwV3pw0W1@nexus.global.lmco.com/repository/pypi-proxy/simple/ --cert ./Combined_pem.pem -r requirements.txt
 EXPOSE 5000
 COPY . .
 CMD ["flask", "run"]
